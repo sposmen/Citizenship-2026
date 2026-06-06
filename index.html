@@ -439,7 +439,7 @@
       <div class="flag-big">🇨🇦</div>
       <h2>Practice Simulator</h2>
       <p class="subtitle">
-        20 random questions from over 500 official-style questions covering<br>
+        20 random questions drawn from a pool of <span id="pool-count">…</span> covering<br>
         Canadian history, government, rights, and symbols.
       </p>
       <div class="info-grid">
@@ -457,7 +457,7 @@
         </div>
         <div class="info-box">
           <div class="label">Question Pool</div>
-          <div class="value" id="pool-size">500+</div>
+          <div class="value" id="pool-size">…</div>
         </div>
       </div>
       <button class="btn-primary" onclick="startQuiz()">Start Simulation</button>
@@ -518,7 +518,9 @@
   let answers = [];
   let answered = false;
 
-  document.getElementById('pool-size').textContent = QUESTIONS.length + ' questions';
+  // Keep the intro text in sync with the actual size of the question pool
+  document.getElementById('pool-size').textContent  = QUESTIONS.length;
+  document.getElementById('pool-count').textContent = QUESTIONS.length + ' official-style questions';
 
   function shuffle(arr) {
     const a = [...arr];
