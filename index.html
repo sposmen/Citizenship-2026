@@ -577,6 +577,7 @@
   }
 
   function startQuiz(seed) {
+    saveDraftToHistory();  // persist any abandoned in-progress session before discarding
     clearDraft();
     try { localStorage.setItem(DRAFT_KEY + '-started', new Date().toISOString()); } catch (e) {}
     quizSeed = (seed !== undefined) ? seed : (Math.floor(Math.random() * 0xFFFFFFFE) + 1);
@@ -802,9 +803,40 @@
       seed: quizSeed,
       score,
       total: TOTAL,
-      hash: window.location.hash
+      hash: window.location.hash,
+      incomplete: false
     };
-    const hist = getHistory();
+    // Replace any earlier incomplete entry for the same seed (quiz was resumed and finished)
+    const hist = getHistory().filter(e => e.seed !== quizSeed);
+    hist.unshift(entry);
+    if (hist.length > 50) hist.pop();
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(hist)); } catch (e) {}
+  }
+
+  function saveDraftToHistory() {
+    const draft = getDraft();
+    if (!draft) return;
+    const params = {};
+    draft.split('&').forEach(part => {
+      const eq = part.indexOf('=');
+      if (eq > -1) params[part.slice(0, eq)] = part.slice(eq + 1);
+    });
+    const seed = parseInt(params.s, 10);
+    const q    = parseInt(params.q, 10);
+    if (isNaN(seed) || isNaN(q) || q >= TOTAL) return; // already completed → already in history
+    const nAns = params.a ? params.a.split(',').length : 0;
+    if (nAns === 0) return; // nothing answered yet, not worth keeping
+    const startedStr = localStorage.getItem(DRAFT_KEY + '-started');
+    const entry = {
+      date: startedStr || new Date().toISOString(),
+      seed,
+      answered: nAns,
+      total: TOTAL,
+      hash: '#' + draft,
+      incomplete: true
+    };
+    // Deduplicate by seed — replace any earlier entry for the same quiz
+    const hist = getHistory().filter(e => e.seed !== seed);
     hist.unshift(entry);
     if (hist.length > 50) hist.pop();
     try { localStorage.setItem(HISTORY_KEY, JSON.stringify(hist)); } catch (e) {}
@@ -909,6 +941,12 @@
       const d = new Date(entry.date);
       const dateStr = d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
       const timeStr = d.toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' });
+      if (entry.incomplete) {
+        return `<a href="${entry.hash}" class="history-entry" onclick="closeHistory()">
+          <div class="he-date">${dateStr} · ${timeStr}</div>
+          <div class="he-score ongoing">↩ Incomplete · ${entry.answered}/${entry.total} answered</div>
+        </a>`;
+      }
       const pct    = Math.round((entry.score / entry.total) * 100);
       const passed = entry.score >= PASS;
       return `<a href="${entry.hash}" class="history-entry" onclick="closeHistory()">
