@@ -1,4 +1,4 @@
-const CACHE = 'citizenship-v1';
+const CACHE = 'citizenship-v2';
 const SHELL = ['./index.html', './questions.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', e => {

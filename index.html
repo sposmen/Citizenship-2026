@@ -655,9 +655,11 @@
     fb.className = 'feedback';
     fb.textContent = '';
 
-    // Reset hint
+    // Reset hint; hide button if no hint text available
+    const hintText = q.hint || '';
     document.getElementById('hint-box').classList.remove('visible');
-    document.getElementById('hint-content').textContent = q.hint || '';
+    document.getElementById('hint-content').textContent = hintText;
+    document.getElementById('hint-btn').style.display = hintText ? 'inline-block' : 'none';
 
     const btnNext = document.getElementById('btn-next');
     btnNext.style.display = 'none';
@@ -774,7 +776,7 @@
             : `Your answer: ${ans.opts[ans.userIdx]} &nbsp;|&nbsp; Correct: <span>${ans.opts[ans.correctIdx]}</span>`
           }
         </div>
-        ${hint ? `<div class="ri-hint">"${hint}"<br><em>— Discover Canada, IRCC 2021</em></div>` : ''}`;
+        ${hint ? `<div class="ri-hint">📖 ${hint}<br><em>— Discover Canada, IRCC 2021</em></div>` : ''}`;
       list.appendChild(div);
     });
 
