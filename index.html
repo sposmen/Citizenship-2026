@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canadian Citizenship Test Practice 2026</title>
+  <meta name="theme-color" content="#D52B1E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Citizenship Quiz">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.svg">
   <style>
     :root {
       --red: #D52B1E;
@@ -40,21 +46,57 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
 
-    .maple-leaf {
-      font-size: 32px;
+    .maple-leaf { font-size: 32px; line-height: 1; flex-shrink: 0; }
+
+    header h1 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; }
+    header p  { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
+
+    .hamburger-btn {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 6px 8px;
       line-height: 1;
+      border-radius: 6px;
+      flex-shrink: 0;
+      transition: background 0.15s;
     }
+    .hamburger-btn:hover { background: rgba(255,255,255,0.18); }
 
-    header h1 {
-      font-size: 1.2rem;
+    /* ── INSTALL BANNER ── */
+    #install-banner {
+      display: none;
+      background: #1a1a1a;
+      color: white;
+      padding: 10px 16px;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+    #install-banner.visible { display: flex; }
+    #install-banner span { flex: 1; }
+    .install-btn {
+      background: var(--red);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 7px 16px;
+      font-size: 0.82rem;
       font-weight: 700;
-      line-height: 1.3;
+      cursor: pointer;
+      white-space: nowrap;
     }
-
-    header p {
-      font-size: 0.8rem;
-      opacity: 0.85;
-      margin-top: 2px;
+    .install-dismiss {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 2px 4px;
+      line-height: 1;
     }
 
     main {
@@ -75,19 +117,9 @@
     }
 
     /* ── START SCREEN ── */
-    #start-screen {
-      padding: 40px 36px 44px;
-      text-align: center;
-    }
-
+    #start-screen { padding: 40px 36px 44px; text-align: center; }
     #start-screen .flag-big { font-size: 72px; margin-bottom: 18px; }
-
-    #start-screen h2 {
-      font-size: 1.55rem;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
+    #start-screen h2 { font-size: 1.55rem; color: var(--dark); margin-bottom: 10px; }
     #start-screen .subtitle {
       color: #666;
       font-size: 0.95rem;
@@ -95,12 +127,7 @@
       line-height: 1.6;
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px; }
 
     .info-box {
       background: var(--gray);
@@ -108,7 +135,6 @@
       padding: 16px;
       text-align: left;
     }
-
     .info-box .label {
       font-size: 0.75rem;
       color: #888;
@@ -116,13 +142,7 @@
       letter-spacing: 0.05em;
       margin-bottom: 4px;
     }
-
-    .info-box .value {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--dark);
-    }
-
+    .info-box .value { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
     .info-box .value.red { color: var(--red); }
 
     .btn-primary {
@@ -137,23 +157,14 @@
       transition: background 0.18s, transform 0.1s;
       width: 100%;
     }
-
-    .btn-primary:hover { background: #b52017; transform: translateY(-1px); }
+    .btn-primary:hover  { background: #b52017; transform: translateY(-1px); }
     .btn-primary:active { transform: translateY(0); }
 
     /* ── QUIZ SCREEN ── */
     #quiz-screen { display: none; }
 
-    .progress-bar-wrap {
-      background: #f0f0f0;
-      height: 6px;
-    }
-
-    .progress-bar-fill {
-      background: var(--red);
-      height: 100%;
-      transition: width 0.4s ease;
-    }
+    .progress-bar-wrap { background: #f0f0f0; height: 6px; }
+    .progress-bar-fill { background: var(--red); height: 100%; transition: width 0.4s ease; }
 
     .quiz-header {
       padding: 18px 28px 14px;
@@ -162,13 +173,7 @@
       align-items: center;
       border-bottom: 1px solid var(--border);
     }
-
-    .q-counter {
-      font-size: 0.9rem;
-      color: #888;
-      font-weight: 500;
-    }
-
+    .q-counter { font-size: 0.9rem; color: #888; font-weight: 500; }
     .chapter-tag {
       font-size: 0.75rem;
       background: #fff3f3;
@@ -179,10 +184,7 @@
       font-weight: 600;
     }
 
-    .question-body {
-      padding: 28px 28px 20px;
-    }
-
+    .question-body { padding: 28px 28px 20px; }
     .question-text {
       font-size: 1.1rem;
       font-weight: 600;
@@ -191,11 +193,7 @@
       margin-bottom: 22px;
     }
 
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .options { display: flex; flex-direction: column; gap: 10px; }
 
     .option-btn {
       display: flex;
@@ -212,11 +210,7 @@
       transition: border-color 0.15s, background 0.15s;
       width: 100%;
     }
-
-    .option-btn:hover:not(:disabled) {
-      border-color: var(--red);
-      background: #fff8f8;
-    }
+    .option-btn:hover:not(:disabled) { border-color: var(--red); background: #fff8f8; }
 
     .option-btn .letter {
       width: 30px;
@@ -232,37 +226,12 @@
       transition: background 0.15s, color 0.15s;
     }
 
-    .option-btn.correct {
-      border-color: var(--correct);
-      background: var(--correct-bg);
-    }
-
-    .option-btn.correct .letter {
-      background: var(--correct);
-      color: white;
-    }
-
-    .option-btn.wrong {
-      border-color: var(--wrong);
-      background: var(--wrong-bg);
-    }
-
-    .option-btn.wrong .letter {
-      background: var(--wrong);
-      color: white;
-    }
-
-    .option-btn.reveal-correct {
-      border-color: var(--correct);
-      background: var(--correct-bg);
-      opacity: 0.75;
-    }
-
-    .option-btn.reveal-correct .letter {
-      background: var(--correct);
-      color: white;
-    }
-
+    .option-btn.correct         { border-color: var(--correct); background: var(--correct-bg); }
+    .option-btn.correct .letter { background: var(--correct); color: white; }
+    .option-btn.wrong           { border-color: var(--wrong);   background: var(--wrong-bg); }
+    .option-btn.wrong .letter   { background: var(--wrong);   color: white; }
+    .option-btn.reveal-correct         { border-color: var(--correct); background: var(--correct-bg); opacity: 0.75; }
+    .option-btn.reveal-correct .letter { background: var(--correct); color: white; }
     .option-btn:disabled { cursor: default; }
 
     .feedback {
@@ -273,15 +242,10 @@
       font-weight: 500;
       display: none;
     }
-
     .feedback.correct { background: var(--correct-bg); color: var(--correct); display: block; }
     .feedback.wrong   { background: var(--wrong-bg);   color: var(--wrong);   display: block; }
 
-    .quiz-footer {
-      padding: 18px 28px 24px;
-      display: flex;
-      justify-content: flex-end;
-    }
+    .quiz-footer { padding: 18px 28px 24px; display: flex; justify-content: flex-end; }
 
     .btn-next {
       background: var(--red);
@@ -295,77 +259,31 @@
       display: none;
       transition: background 0.18s;
     }
-
     .btn-next:hover { background: #b52017; }
 
     /* ── RESULT SCREEN ── */
     #result-screen { display: none; padding: 40px 36px 44px; text-align: center; }
 
-    .result-icon { font-size: 72px; margin-bottom: 16px; }
-
-    .result-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
+    .result-icon  { font-size: 72px; margin-bottom: 16px; }
+    .result-title { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
     .result-title.pass { color: var(--correct); }
     .result-title.fail { color: var(--wrong); }
 
-    .score-display {
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: var(--dark);
-      margin: 12px 0 6px;
-    }
+    .score-display { font-size: 3.5rem; font-weight: 900; color: var(--dark); margin: 12px 0 6px; }
+    .score-label   { color: #888; font-size: 0.95rem; margin-bottom: 24px; }
 
-    .score-label {
-      color: #888;
-      font-size: 0.95rem;
-      margin-bottom: 24px;
-    }
-
-    .pass-bar-wrap {
-      background: #f0f0f0;
-      border-radius: 20px;
-      height: 12px;
-      width: 100%;
-      margin-bottom: 6px;
-      overflow: hidden;
-    }
-
-    .pass-bar-fill {
-      height: 100%;
-      border-radius: 20px;
-      transition: width 0.8s ease;
-    }
-
+    .pass-bar-wrap { background: #f0f0f0; border-radius: 20px; height: 12px; width: 100%; margin-bottom: 6px; overflow: hidden; }
+    .pass-bar-fill { height: 100%; border-radius: 20px; transition: width 0.8s ease; }
     .pass-bar-fill.pass { background: var(--correct); }
     .pass-bar-fill.fail { background: var(--wrong); }
 
-    .threshold-note {
-      font-size: 0.82rem;
-      color: #888;
-      margin-bottom: 28px;
-      text-align: right;
-    }
+    .threshold-note { font-size: 0.82rem; color: #888; margin-bottom: 28px; text-align: right; }
 
-    .verdict-box {
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 28px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
+    .verdict-box { border-radius: 12px; padding: 18px 20px; margin-bottom: 28px; font-size: 0.95rem; line-height: 1.6; }
     .verdict-box.pass { background: var(--correct-bg); color: var(--correct); }
     .verdict-box.fail { background: var(--wrong-bg);   color: var(--wrong);   }
 
-    .result-actions {
-      display: flex;
-      gap: 12px;
-      flex-direction: column;
-    }
+    .result-actions { display: flex; gap: 12px; flex-direction: column; }
 
     .btn-secondary {
       background: white;
@@ -378,36 +296,108 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-
     .btn-secondary:hover { background: #fff3f3; }
 
-    .review-section {
-      margin-top: 28px;
-      text-align: left;
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-    }
+    .review-section { margin-top: 28px; text-align: left; border-top: 1px solid var(--border); padding-top: 24px; }
+    .review-section h3 { font-size: 1rem; color: var(--dark); margin-bottom: 14px; }
 
-    .review-section h3 {
-      font-size: 1rem;
-      color: var(--dark);
-      margin-bottom: 14px;
-    }
-
-    .review-item {
-      padding: 12px 14px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-
+    .review-item { padding: 12px 14px; border-radius: 8px; margin-bottom: 10px; font-size: 0.88rem; line-height: 1.5; }
     .review-item.correct { background: var(--correct-bg); border-left: 4px solid var(--correct); }
-    .review-item.wrong   { background: var(--wrong-bg);   border-left: 4px solid var(--wrong);   }
-
+    .review-item.wrong   { background: var(--wrong-bg);   border-left: 4px solid var(--wrong); }
     .review-item .ri-q   { font-weight: 600; color: var(--dark); margin-bottom: 4px; }
     .review-item .ri-ans { color: #555; }
     .review-item .ri-ans span { font-weight: 600; }
+
+    /* ── HISTORY SIDEBAR ── */
+    .history-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+    }
+    .history-overlay.open { display: block; }
+
+    .history-panel {
+      position: fixed;
+      top: 0;
+      right: -340px;
+      width: 310px;
+      max-width: 90vw;
+      height: 100%;
+      background: white;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.2);
+      z-index: 201;
+      transition: right 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .history-panel.open { right: 0; }
+
+    .history-head {
+      background: var(--red);
+      color: white;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .history-head h2 { font-size: 1rem; font-weight: 700; }
+    .history-close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: background 0.15s;
+    }
+    .history-close-btn:hover { background: rgba(255,255,255,0.2); }
+
+    .history-list { flex: 1; overflow-y: auto; padding: 10px; }
+
+    .history-empty {
+      color: #999;
+      font-size: 0.88rem;
+      text-align: center;
+      padding: 40px 16px;
+      line-height: 1.7;
+    }
+
+    .history-entry {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .history-entry:hover { background: var(--gray); }
+
+    .he-date  { font-size: 0.78rem; color: #888; margin-bottom: 4px; }
+    .he-score { font-size: 0.92rem; font-weight: 700; }
+    .he-score.pass { color: var(--correct); }
+    .he-score.fail { color: var(--wrong); }
+
+    .history-footer { padding: 12px; border-top: 1px solid var(--border); flex-shrink: 0; }
+    .btn-clear {
+      width: 100%;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.85rem;
+      color: #888;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-clear:hover { border-color: var(--wrong); color: var(--wrong); }
 
     @media (max-width: 500px) {
       header h1 { font-size: 1rem; }
@@ -429,7 +419,14 @@
     <h1>Canadian Citizenship Test Practice</h1>
     <p>Discover Canada — 2026 Edition</p>
   </div>
+  <button class="hamburger-btn" onclick="toggleHistory()" aria-label="Practice history">☰</button>
 </header>
+
+<div id="install-banner">
+  <span>📲 Install for offline access</span>
+  <button class="install-btn" onclick="installApp()">Install</button>
+  <button class="install-dismiss" onclick="dismissInstall()" aria-label="Dismiss">✕</button>
+</div>
 
 <main>
   <div class="card">
@@ -506,11 +503,25 @@
   </div>
 </main>
 
+<!-- History sidebar -->
+<div class="history-overlay" id="history-overlay" onclick="closeHistory()"></div>
+<aside class="history-panel" id="history-panel">
+  <div class="history-head">
+    <h2>📋 Practice History</h2>
+    <button class="history-close-btn" onclick="closeHistory()" aria-label="Close">✕</button>
+  </div>
+  <div class="history-list" id="history-list"></div>
+  <div class="history-footer">
+    <button class="btn-clear" onclick="clearHistory()">Clear all history</button>
+  </div>
+</aside>
+
 <script src="questions.js"></script>
 <script>
   const TOTAL = 20;
   const PASS  = 15;
   const LETTERS = ['A', 'B', 'C', 'D'];
+  const HISTORY_KEY = 'citizenship-quiz-history';
 
   let quiz = [];
   let current = 0;
@@ -518,6 +529,8 @@
   let answers = [];
   let answered = false;
   let quizSeed = 0;
+  let sessionSaved = false;
+  let deferredInstallPrompt = null;
 
   document.getElementById('pool-size').textContent  = QUESTIONS.length;
   document.getElementById('pool-count').textContent = QUESTIONS.length + ' official-style questions';
@@ -566,6 +579,7 @@
     score = 0;
     answers = [];
     answered = false;
+    sessionSaved = false;
 
     document.getElementById('start-screen').style.display  = 'none';
     document.getElementById('result-screen').style.display = 'none';
@@ -603,7 +617,7 @@
       opts.appendChild(btn);
     });
 
-    // Restore visual state if this question was already answered
+    // Restore visual state if this question was already answered (URL reload)
     if (existingAns) {
       const allBtns = document.querySelectorAll('.option-btn');
       allBtns.forEach(b => b.disabled = true);
@@ -707,6 +721,12 @@
     });
 
     document.getElementById('result-screen').scrollIntoView({ behavior: 'smooth' });
+
+    // Persist this session (only once per completed quiz, not on URL restore)
+    if (!sessionSaved) {
+      sessionSaved = true;
+      saveSession();
+    }
   }
 
   function showStart() {
@@ -748,6 +768,8 @@
 
     current = (!isNaN(q) && q >= 0) ? Math.min(q, TOTAL) : 0;
     answered = answers.length > current;
+    // Mark as already saved so showResults() won't duplicate this session in history
+    sessionSaved = true;
 
     if (current >= TOTAL) {
       document.getElementById('start-screen').style.display  = 'none';
@@ -762,6 +784,110 @@
 
     return true;
   }
+
+  // ── HISTORY ──────────────────────────────────────────────────────────────
+
+  function saveSession() {
+    const entry = {
+      date: new Date().toISOString(),
+      seed: quizSeed,
+      score,
+      total: TOTAL,
+      hash: window.location.hash
+    };
+    const hist = getHistory();
+    hist.unshift(entry);
+    if (hist.length > 50) hist.pop();
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(hist)); } catch (e) {}
+  }
+
+  function getHistory() {
+    try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch { return []; }
+  }
+
+  function toggleHistory() {
+    document.getElementById('history-panel').classList.contains('open')
+      ? closeHistory() : openHistory();
+  }
+
+  function openHistory() {
+    renderHistory();
+    document.getElementById('history-panel').classList.add('open');
+    document.getElementById('history-overlay').classList.add('open');
+  }
+
+  function closeHistory() {
+    document.getElementById('history-panel').classList.remove('open');
+    document.getElementById('history-overlay').classList.remove('open');
+  }
+
+  function renderHistory() {
+    const list = document.getElementById('history-list');
+    const hist = getHistory();
+    if (!hist.length) {
+      list.innerHTML = '<p class="history-empty">No sessions yet.<br>Complete a quiz to see your history here.</p>';
+      return;
+    }
+    list.innerHTML = hist.map(entry => {
+      const d = new Date(entry.date);
+      const dateStr = d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
+      const timeStr = d.toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' });
+      const pct    = Math.round((entry.score / entry.total) * 100);
+      const passed = entry.score >= PASS;
+      return `<a href="${entry.hash}" class="history-entry" onclick="closeHistory()">
+        <div class="he-date">${dateStr} · ${timeStr}</div>
+        <div class="he-score ${passed ? 'pass' : 'fail'}">${entry.score}/${entry.total} · ${pct}% · ${passed ? '✓ Pass' : '✗ Fail'}</div>
+      </a>`;
+    }).join('');
+  }
+
+  function clearHistory() {
+    if (!confirm('Clear all practice history?')) return;
+    try { localStorage.removeItem(HISTORY_KEY); } catch (e) {}
+    renderHistory();
+  }
+
+  // ── PWA INSTALL PROMPT ───────────────────────────────────────────────────
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    document.getElementById('install-banner').classList.add('visible');
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    dismissInstall();
+  });
+
+  function installApp() {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then(() => {
+      deferredInstallPrompt = null;
+      dismissInstall();
+    });
+  }
+
+  function dismissInstall() {
+    document.getElementById('install-banner').classList.remove('visible');
+  }
+
+  // ── SERVICE WORKER ───────────────────────────────────────────────────────
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+
+  // Navigate to a history entry via hash link → restore that session
+  window.addEventListener('hashchange', () => {
+    if (!restoreFromURL()) {
+      // Hash cleared → show start screen
+      document.getElementById('quiz-screen').style.display   = 'none';
+      document.getElementById('result-screen').style.display = 'none';
+      document.getElementById('start-screen').style.display  = 'block';
+    }
+  });
 
   restoreFromURL();
 </script>
