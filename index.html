@@ -678,8 +678,11 @@
     document.getElementById('hint-content').textContent = hintText;
     document.getElementById('hint-btn').style.display = hintText ? 'inline-block' : 'none';
 
-    // Auto-read question if TTS is on (skip when restoring an already-answered question)
-    if (!existingAns) speak(q.q);
+    // Auto-read question + options if TTS is on (skip when restoring an already-answered question)
+    if (!existingAns) {
+      const optText = q.a.map((opt, idx) => `${LETTERS[idx]}: ${opt}`).join('. ');
+      speak(`${q.q}. ${optText}`);
+    }
 
     const btnNext = document.getElementById('btn-next');
     btnNext.style.display = 'none';
@@ -830,9 +833,12 @@
     if (!ttsEnabled) {
       window.speechSynthesis.cancel();
     } else {
-      // Immediately read the current question if we're in the quiz
-      const qt = document.getElementById('question-text');
-      if (qt && qt.textContent) speak(qt.textContent);
+      // Immediately read the current question + options if we're in the quiz
+      if (quiz.length && current < TOTAL && !answered) {
+        const q = quiz[current];
+        const optText = q.a.map((opt, idx) => `${LETTERS[idx]}: ${opt}`).join('. ');
+        speak(`${q.q}. ${optText}`);
+      }
     }
   }
 
