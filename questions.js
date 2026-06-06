@@ -859,9 +859,9 @@ const QUESTIONS = [
     chapter: "Modern Canada"
   },
   {
-    q: "Which of the following is NOT a Canadian invention?",
-    a: ["Insulin", "Canadarm", "Electric light bulb", "Blackberry"],
-    correct: 2,
+    q: "Who invented the snowmobile, a lightweight winter vehicle?",
+    a: ["Joseph-Armand Bombardier", "Alexander Graham Bell", "Reginald Fessenden", "Mike Lazaridis"],
+    correct: 0,
     chapter: "Modern Canada"
   },
   {
@@ -1019,8 +1019,8 @@ const QUESTIONS = [
 
   // Chapter 6 - Federal Elections
   {
-    q: "How many members of the House of Commons are elected?",
-    a: ["100", "200", "207", "338"],
+    q: "How many members of the House of Commons (electoral districts/ridings) are there?",
+    a: ["100", "200", "207", "308"],
     correct: 3,
     chapter: "Federal Elections"
   },
@@ -1055,8 +1055,8 @@ const QUESTIONS = [
     chapter: "Federal Elections"
   },
   {
-    q: "There are three major political parties currently represented in the House of Commons. They are:",
-    a: ["Conservative, Democrats, and Workers", "Conservative, New Democratic, and Liberal", "Conservative, Officers, and Feminist", "Liberal, Workers, and Reform"],
+    q: "Which four major political parties were represented in the House of Commons (per the official guide)?",
+    a: ["Conservative, Democrats, Workers, and Green", "Bloc Québécois, Conservative, Liberal, and New Democratic", "Conservative, Officers, Feminist, and Reform", "Liberal, Workers, Reform, and Green"],
     correct: 1,
     chapter: "Federal Elections"
   },
