@@ -174,6 +174,7 @@
       border-bottom: 1px solid var(--border);
     }
     .q-counter { font-size: 0.9rem; color: #888; font-weight: 500; }
+    .quiz-header-right { display: flex; align-items: center; gap: 8px; }
     .chapter-tag {
       font-size: 0.75rem;
       background: #fff3f3;
@@ -182,6 +183,43 @@
       border-radius: 20px;
       padding: 3px 10px;
       font-weight: 600;
+    }
+    .hint-btn {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #b45309;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .hint-btn:hover { background: #fff3cd; }
+
+    .hint-box {
+      display: none;
+      margin: 0 28px 16px;
+      padding: 12px 14px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #78350f;
+    }
+    .hint-box.visible { display: block; }
+    .hint-source { margin-top: 6px; font-size: 0.75rem; color: #92400e; font-style: italic; }
+
+    .ri-hint {
+      margin-top: 7px;
+      padding-top: 7px;
+      border-top: 1px solid rgba(0,0,0,0.09);
+      font-size: 0.81rem;
+      color: #666;
+      font-style: italic;
+      line-height: 1.5;
     }
 
     .question-body { padding: 28px 28px 20px; }
@@ -469,7 +507,14 @@
       </div>
       <div class="quiz-header">
         <span class="q-counter" id="q-counter">Question 1 of 20</span>
-        <span class="chapter-tag" id="chapter-tag"></span>
+        <div class="quiz-header-right">
+          <span class="chapter-tag" id="chapter-tag"></span>
+          <button class="hint-btn" id="hint-btn" onclick="toggleHint()">💡 Hint</button>
+        </div>
+      </div>
+      <div class="hint-box" id="hint-box">
+        <div id="hint-content"></div>
+        <div class="hint-source">— Discover Canada, IRCC 2021</div>
       </div>
       <div class="question-body">
         <p class="question-text" id="question-text"></p>
@@ -565,7 +610,7 @@
       const indexed = q.a.map((text, i) => ({ text, orig: i }));
       const shuffled = shuffle(indexed, rng);
       const newCorrect = shuffled.findIndex(x => x.orig === q.correct);
-      return { q: q.q, a: shuffled.map(x => x.text), correct: newCorrect, chapter: q.chapter };
+      return { q: q.q, a: shuffled.map(x => x.text), correct: newCorrect, chapter: q.chapter, hint: q.hint || '' };
     });
   }
 
@@ -609,6 +654,10 @@
     const fb = document.getElementById('feedback');
     fb.className = 'feedback';
     fb.textContent = '';
+
+    // Reset hint
+    document.getElementById('hint-box').classList.remove('visible');
+    document.getElementById('hint-content').textContent = q.hint || '';
 
     const btnNext = document.getElementById('btn-next');
     btnNext.style.display = 'none';
@@ -714,6 +763,7 @@
     const list = document.getElementById('review-list');
     list.innerHTML = '';
     answers.forEach((ans, i) => {
+      const hint = quiz[i] ? quiz[i].hint : '';
       const div = document.createElement('div');
       div.className = 'review-item ' + (ans.right ? 'correct' : 'wrong');
       div.innerHTML = `
@@ -723,7 +773,8 @@
             ? `<span>✓ ${ans.opts[ans.correctIdx]}</span>`
             : `Your answer: ${ans.opts[ans.userIdx]} &nbsp;|&nbsp; Correct: <span>${ans.opts[ans.correctIdx]}</span>`
           }
-        </div>`;
+        </div>
+        ${hint ? `<div class="ri-hint">"${hint}"<br><em>— Discover Canada, IRCC 2021</em></div>` : ''}`;
       list.appendChild(div);
     });
 
@@ -735,6 +786,10 @@
       saveSession();
     }
     clearDraft();
+  }
+
+  function toggleHint() {
+    document.getElementById('hint-box').classList.toggle('visible');
   }
 
   function showStart() {
