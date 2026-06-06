@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canadian Citizenship Test Practice 2026</title>
+  <style>
+    :root {
+      --red: #D52B1E;
+      --white: #FFFFFF;
+      --gray: #F5F5F5;
+      --dark: #1a1a1a;
+      --text: #333333;
+      --border: #e0e0e0;
+      --correct: #2e7d32;
+      --wrong: #c62828;
+      --correct-bg: #e8f5e9;
+      --wrong-bg: #ffebee;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gray);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--red);
+      color: var(--white);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .maple-leaf {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    header p {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 28px 16px 40px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 680px;
+      overflow: hidden;
+    }
+
+    /* ── START SCREEN ── */
+    #start-screen {
+      padding: 40px 36px 44px;
+      text-align: center;
+    }
+
+    #start-screen .flag-big { font-size: 72px; margin-bottom: 18px; }
+
+    #start-screen h2 {
+      font-size: 1.55rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    #start-screen .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      background: var(--gray);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: left;
+    }
+
+    .info-box .label {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .info-box .value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .info-box .value.red { color: var(--red); }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 15px 40px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.1s;
+      width: 100%;
+    }
+
+    .btn-primary:hover { background: #b52017; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    /* ── QUIZ SCREEN ── */
+    #quiz-screen { display: none; }
+
+    .progress-bar-wrap {
+      background: #f0f0f0;
+      height: 6px;
+    }
+
+    .progress-bar-fill {
+      background: var(--red);
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+
+    .quiz-header {
+      padding: 18px 28px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .q-counter {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+    }
+
+    .chapter-tag {
+      font-size: 0.75rem;
+      background: #fff3f3;
+      color: var(--red);
+      border: 1px solid #fcc;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-weight: 600;
+    }
+
+    .question-body {
+      padding: 28px 28px 20px;
+    }
+
+    .question-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.55;
+      margin-bottom: 22px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--red);
+      background: #fff8f8;
+    }
+
+    .option-btn .letter {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .option-btn.correct {
+      border-color: var(--correct);
+      background: var(--correct-bg);
+    }
+
+    .option-btn.correct .letter {
+      background: var(--correct);
+      color: white;
+    }
+
+    .option-btn.wrong {
+      border-color: var(--wrong);
+      background: var(--wrong-bg);
+    }
+
+    .option-btn.wrong .letter {
+      background: var(--wrong);
+      color: white;
+    }
+
+    .option-btn.reveal-correct {
+      border-color: var(--correct);
+      background: var(--correct-bg);
+      opacity: 0.75;
+    }
+
+    .option-btn.reveal-correct .letter {
+      background: var(--correct);
+      color: white;
+    }
+
+    .option-btn:disabled { cursor: default; }
+
+    .feedback {
+      margin: 16px 28px 0;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: none;
+    }
+
+    .feedback.correct { background: var(--correct-bg); color: var(--correct); display: block; }
+    .feedback.wrong   { background: var(--wrong-bg);   color: var(--wrong);   display: block; }
+
+    .quiz-footer {
+      padding: 18px 28px 24px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-next {
+      background: var(--red);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 32px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+      transition: background 0.18s;
+    }
+
+    .btn-next:hover { background: #b52017; }
+
+    /* ── RESULT SCREEN ── */
+    #result-screen { display: none; padding: 40px 36px 44px; text-align: center; }
+
+    .result-icon { font-size: 72px; margin-bottom: 16px; }
+
+    .result-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .result-title.pass { color: var(--correct); }
+    .result-title.fail { color: var(--wrong); }
+
+    .score-display {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin: 12px 0 6px;
+    }
+
+    .score-label {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .pass-bar-wrap {
+      background: #f0f0f0;
+      border-radius: 20px;
+      height: 12px;
+      width: 100%;
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .pass-bar-fill {
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.8s ease;
+    }
+
+    .pass-bar-fill.pass { background: var(--correct); }
+    .pass-bar-fill.fail { background: var(--wrong); }
+
+    .threshold-note {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 28px;
+      text-align: right;
+    }
+
+    .verdict-box {
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .verdict-box.pass { background: var(--correct-bg); color: var(--correct); }
+    .verdict-box.fail { background: var(--wrong-bg);   color: var(--wrong);   }
+
+    .result-actions {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--red);
+      border: 2px solid var(--red);
+      border-radius: 10px;
+      padding: 13px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .btn-secondary:hover { background: #fff3f3; }
+
+    .review-section {
+      margin-top: 28px;
+      text-align: left;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .review-section h3 {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+
+    .review-item {
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .review-item.correct { background: var(--correct-bg); border-left: 4px solid var(--correct); }
+    .review-item.wrong   { background: var(--wrong-bg);   border-left: 4px solid var(--wrong);   }
+
+    .review-item .ri-q   { font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+    .review-item .ri-ans { color: #555; }
+    .review-item .ri-ans span { font-weight: 600; }
+
+    @media (max-width: 500px) {
+      header h1 { font-size: 1rem; }
+      .info-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .question-body { padding: 20px 18px 16px; }
+      .quiz-header { padding: 14px 18px 12px; }
+      .quiz-footer { padding: 14px 18px 20px; }
+      #start-screen { padding: 28px 20px 32px; }
+      #result-screen { padding: 28px 20px 32px; }
+      .score-display { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="maple-leaf">🍁</span>
+  <div>
+    <h1>Canadian Citizenship Test Practice</h1>
+    <p>Discover Canada — 2026 Edition</p>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+
+    <!-- START SCREEN -->
+    <div id="start-screen">
+      <div class="flag-big">🇨🇦</div>
+      <h2>Practice Simulator</h2>
+      <p class="subtitle">
+        20 random questions from over 500 official-style questions covering<br>
+        Canadian history, government, rights, and symbols.
+      </p>
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="label">Questions</div>
+          <div class="value">20</div>
+        </div>
+        <div class="info-box">
+          <div class="label">To Pass</div>
+          <div class="value red">15 / 20</div>
+        </div>
+        <div class="info-box">
+          <div class="label">Pass Rate</div>
+          <div class="value">75%</div>
+        </div>
+        <div class="info-box">
+          <div class="label">Question Pool</div>
+          <div class="value" id="pool-size">500+</div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="startQuiz()">Start Simulation</button>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div id="quiz-screen">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+      <div class="quiz-header">
+        <span class="q-counter" id="q-counter">Question 1 of 20</span>
+        <span class="chapter-tag" id="chapter-tag"></span>
+      </div>
+      <div class="question-body">
+        <p class="question-text" id="question-text"></p>
+        <div class="options" id="options"></div>
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <div class="quiz-footer">
+        <button class="btn-next" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="result-screen">
+      <div class="result-icon" id="result-icon"></div>
+      <div class="result-title" id="result-title"></div>
+      <div class="score-display" id="score-display"></div>
+      <div class="score-label">correct answers out of 20</div>
+      <div class="pass-bar-wrap">
+        <div class="pass-bar-fill" id="pass-bar"></div>
+      </div>
+      <div class="threshold-note">Pass threshold: 15/20 (75%)</div>
+      <div class="verdict-box" id="verdict-box"></div>
+      <div class="result-actions">
+        <button class="btn-primary" onclick="startQuiz()">Try Again — New Questions</button>
+        <button class="btn-secondary" onclick="showStart()">Back to Start</button>
+      </div>
+      <div class="review-section">
+        <h3>📋 Question Review</h3>
+        <div id="review-list"></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="questions.js"></script>
+<script>
+  const TOTAL = 20;
+  const PASS  = 15;
+  const LETTERS = ['A', 'B', 'C', 'D'];
+
+  let quiz = [];
+  let current = 0;
+  let score = 0;
+  let answers = [];
+  let answered = false;
+
+  document.getElementById('pool-size').textContent = QUESTIONS.length + ' questions';
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function pickQuestions() {
+    const pool = shuffle(QUESTIONS).slice(0, TOTAL);
+    return pool.map(q => {
+      // Shuffle options while tracking the correct answer
+      const indexed = q.a.map((text, i) => ({ text, orig: i }));
+      const shuffled = shuffle(indexed);
+      const newCorrect = shuffled.findIndex(x => x.orig === q.correct);
+      return {
+        q: q.q,
+        a: shuffled.map(x => x.text),
+        correct: newCorrect,
+        chapter: q.chapter
+      };
+    });
+  }
+
+  function startQuiz() {
+    quiz = pickQuestions();
+    current = 0;
+    score = 0;
+    answers = [];
+    answered = false;
+
+    document.getElementById('start-screen').style.display  = 'none';
+    document.getElementById('result-screen').style.display = 'none';
+    document.getElementById('quiz-screen').style.display   = 'block';
+
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = quiz[current];
+    answered = false;
+
+    document.getElementById('progress-bar').style.width = ((current / TOTAL) * 100) + '%';
+    document.getElementById('q-counter').textContent    = `Question ${current + 1} of ${TOTAL}`;
+    document.getElementById('chapter-tag').textContent  = q.chapter;
+    document.getElementById('question-text').textContent = q.q;
+
+    const fb = document.getElementById('feedback');
+    fb.className = 'feedback';
+    fb.textContent = '';
+
+    document.getElementById('btn-next').style.display = 'none';
+
+    const opts = document.getElementById('options');
+    opts.innerHTML = '';
+
+    q.a.forEach((text, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.innerHTML = `<span class="letter">${LETTERS[i]}</span><span>${text}</span>`;
+      btn.onclick = () => selectAnswer(i, btn);
+      opts.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(idx, btn) {
+    if (answered) return;
+    answered = true;
+
+    const q = quiz[current];
+    const allBtns = document.querySelectorAll('.option-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    const fb = document.getElementById('feedback');
+
+    if (idx === q.correct) {
+      btn.classList.add('correct');
+      fb.className = 'feedback correct';
+      fb.textContent = '✓ Correct!';
+      score++;
+      answers.push({ q: q.q, userIdx: idx, correctIdx: q.correct, opts: q.a, right: true });
+    } else {
+      btn.classList.add('wrong');
+      allBtns[q.correct].classList.add('reveal-correct');
+      fb.className = 'feedback wrong';
+      fb.textContent = `✗ Incorrect. The correct answer is: ${q.a[q.correct]}`;
+      answers.push({ q: q.q, userIdx: idx, correctIdx: q.correct, opts: q.a, right: false });
+    }
+
+    document.getElementById('btn-next').style.display = 'block';
+    document.getElementById('btn-next').textContent =
+      current + 1 < TOTAL ? 'Next →' : 'See Results';
+  }
+
+  function nextQuestion() {
+    current++;
+    if (current < TOTAL) {
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  function showResults() {
+    document.getElementById('quiz-screen').style.display   = 'none';
+    document.getElementById('result-screen').style.display = 'block';
+
+    const pct    = Math.round((score / TOTAL) * 100);
+    const passed = score >= PASS;
+
+    document.getElementById('result-icon').textContent    = passed ? '🎉' : '📚';
+    document.getElementById('result-title').textContent   = passed ? 'You Passed!' : 'Not Passed';
+    document.getElementById('result-title').className     = 'result-title ' + (passed ? 'pass' : 'fail');
+    document.getElementById('score-display').textContent  = `${score} / ${TOTAL}`;
+
+    const bar = document.getElementById('pass-bar');
+    bar.style.width = '0%';
+    bar.className = 'pass-bar-fill ' + (passed ? 'pass' : 'fail');
+    setTimeout(() => { bar.style.width = pct + '%'; }, 100);
+
+    const vb = document.getElementById('verdict-box');
+    vb.className = 'verdict-box ' + (passed ? 'pass' : 'fail');
+    if (passed) {
+      vb.innerHTML = `<strong>Congratulations!</strong> You scored <strong>${score}/20 (${pct}%)</strong>.<br>
+        The passing score for the real Canadian citizenship test is 75% (15/20). You are ready! 🍁`;
+    } else {
+      vb.innerHTML = `You scored <strong>${score}/20 (${pct}%)</strong>.<br>
+        You need at least <strong>15 correct answers</strong> to pass. Keep studying — you've got this! 📖`;
+    }
+
+    // Build review
+    const list = document.getElementById('review-list');
+    list.innerHTML = '';
+    answers.forEach((ans, i) => {
+      const div = document.createElement('div');
+      div.className = 'review-item ' + (ans.right ? 'correct' : 'wrong');
+      div.innerHTML = `
+        <div class="ri-q">${i + 1}. ${ans.q}</div>
+        <div class="ri-ans">
+          ${ans.right
+            ? `<span>✓ ${ans.opts[ans.correctIdx]}</span>`
+            : `Your answer: ${ans.opts[ans.userIdx]} &nbsp;|&nbsp; Correct: <span>${ans.opts[ans.correctIdx]}</span>`
+          }
+        </div>`;
+      list.appendChild(div);
+    });
+
+    document.getElementById('result-screen').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function showStart() {
+    document.getElementById('result-screen').style.display = 'none';
+    document.getElementById('quiz-screen').style.display   = 'none';
+    document.getElementById('start-screen').style.display  = 'block';
+  }
+</script>
+</body>
+</html>
