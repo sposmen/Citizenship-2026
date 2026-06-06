@@ -457,6 +457,7 @@
           <div class="value" id="pool-size">…</div>
         </div>
       </div>
+      <div id="resume-box" style="display:none; margin-bottom:14px;"></div>
       <button class="btn-primary" onclick="startQuiz()">Start Simulation</button>
     </div>
 
@@ -522,6 +523,7 @@
   const PASS  = 15;
   const LETTERS = ['A', 'B', 'C', 'D'];
   const HISTORY_KEY = 'citizenship-quiz-history';
+  const DRAFT_KEY   = 'citizenship-quiz-draft';
 
   let quiz = [];
   let current = 0;
@@ -570,9 +572,11 @@
     const aStr = answers.map(ans => ans.userIdx).join(',');
     const hash = 's=' + quizSeed + '&q=' + current + (aStr ? '&a=' + aStr : '');
     history.replaceState(null, '', '#' + hash);
+    try { localStorage.setItem(DRAFT_KEY, hash); } catch (e) {}
   }
 
   function startQuiz(seed) {
+    clearDraft();
     quizSeed = (seed !== undefined) ? seed : (Math.floor(Math.random() * 0xFFFFFFFE) + 1);
     quiz = pickQuestions(quizSeed);
     current = 0;
@@ -727,6 +731,7 @@
       sessionSaved = true;
       saveSession();
     }
+    clearDraft();
   }
 
   function showStart() {
@@ -734,6 +739,8 @@
     document.getElementById('quiz-screen').style.display   = 'none';
     document.getElementById('start-screen').style.display  = 'block';
     history.replaceState(null, '', window.location.pathname + window.location.search);
+    clearDraft();
+    checkForDraft();
   }
 
   // Restore full quiz state from URL hash (#s=seed&q=currentIdx&a=ans0,ans1,...)
@@ -768,8 +775,8 @@
 
     current = (!isNaN(q) && q >= 0) ? Math.min(q, TOTAL) : 0;
     answered = answers.length > current;
-    // Mark as already saved so showResults() won't duplicate this session in history
-    sessionSaved = true;
+    // Only mark saved when restoring a completed session — mid-quiz restores must still save on finish
+    sessionSaved = (current >= TOTAL);
 
     if (current >= TOTAL) {
       document.getElementById('start-screen').style.display  = 'none';
@@ -803,6 +810,44 @@
 
   function getHistory() {
     try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch { return []; }
+  }
+
+  // ── DRAFT (in-progress session) ───────────────────────────────────────────
+
+  function getDraft() {
+    try { return localStorage.getItem(DRAFT_KEY); } catch { return null; }
+  }
+
+  function clearDraft() {
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    const box = document.getElementById('resume-box');
+    if (box) box.style.display = 'none';
+  }
+
+  function checkForDraft() {
+    const draft = getDraft();
+    if (!draft) return;
+    const params = {};
+    draft.split('&').forEach(part => {
+      const eq = part.indexOf('=');
+      if (eq > -1) params[part.slice(0, eq)] = part.slice(eq + 1);
+    });
+    const seed = parseInt(params.s, 10);
+    const q    = parseInt(params.q, 10);
+    if (isNaN(seed) || isNaN(q) || q >= TOTAL) return; // completed sessions go to history, not resume
+    const answered = params.a ? params.a.split(',').length : 0;
+    const box = document.getElementById('resume-box');
+    box.innerHTML = `<button class="btn-secondary" style="width:100%" onclick="resumeDraft()">
+      ↩ Resume practice — Question ${Math.min(q + 1, TOTAL)} of ${TOTAL} (${answered} answered)
+    </button>`;
+    box.style.display = 'block';
+  }
+
+  function resumeDraft() {
+    const draft = getDraft();
+    if (!draft) return;
+    history.replaceState(null, '', '#' + draft);
+    restoreFromURL();
   }
 
   function toggleHistory() {
@@ -889,7 +934,7 @@
     }
   });
 
-  restoreFromURL();
+  if (!restoreFromURL()) checkForDraft();
 </script>
 </body>
 </html>
