@@ -382,8 +382,9 @@
 
     .he-date  { font-size: 0.78rem; color: #888; margin-bottom: 4px; }
     .he-score { font-size: 0.92rem; font-weight: 700; }
-    .he-score.pass { color: var(--correct); }
-    .he-score.fail { color: var(--wrong); }
+    .he-score.pass     { color: var(--correct); }
+    .he-score.fail     { color: var(--wrong); }
+    .he-score.ongoing  { color: #e65100; }
 
     .history-footer { padding: 12px; border-top: 1px solid var(--border); flex-shrink: 0; }
     .btn-clear {
@@ -577,6 +578,7 @@
 
   function startQuiz(seed) {
     clearDraft();
+    try { localStorage.setItem(DRAFT_KEY + '-started', new Date().toISOString()); } catch (e) {}
     quizSeed = (seed !== undefined) ? seed : (Math.floor(Math.random() * 0xFFFFFFFE) + 1);
     quiz = pickQuestions(quizSeed);
     current = 0;
@@ -820,6 +822,7 @@
 
   function clearDraft() {
     try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    try { localStorage.removeItem(DRAFT_KEY + '-started'); } catch (e) {}
     const box = document.getElementById('resume-box');
     if (box) box.style.display = 'none';
   }
@@ -832,13 +835,17 @@
       const eq = part.indexOf('=');
       if (eq > -1) params[part.slice(0, eq)] = part.slice(eq + 1);
     });
-    const seed = parseInt(params.s, 10);
-    const q    = parseInt(params.q, 10);
-    if (isNaN(seed) || isNaN(q) || q >= TOTAL) return; // completed sessions go to history, not resume
-    const answered = params.a ? params.a.split(',').length : 0;
+    const seed     = parseInt(params.s, 10);
+    const q        = parseInt(params.q, 10);
+    if (isNaN(seed) || isNaN(q) || q >= TOTAL) return;
+    const nAnswered = params.a ? params.a.split(',').length : 0;
+    const startedStr = localStorage.getItem(DRAFT_KEY + '-started');
+    const whenStr = startedStr
+      ? new Date(startedStr).toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' })
+      : '';
     const box = document.getElementById('resume-box');
     box.innerHTML = `<button class="btn-secondary" style="width:100%" onclick="resumeDraft()">
-      ↩ Resume practice — Question ${Math.min(q + 1, TOTAL)} of ${TOTAL} (${answered} answered)
+      ↩ Resume practice — Q${Math.min(q + 1, TOTAL)} of ${TOTAL}${whenStr ? ' · started ' + whenStr : ''}
     </button>`;
     box.style.display = 'block';
   }
@@ -869,11 +876,36 @@
   function renderHistory() {
     const list = document.getElementById('history-list');
     const hist = getHistory();
-    if (!hist.length) {
+
+    // In-progress draft entry at the top
+    let draftHtml = '';
+    const draft = getDraft();
+    if (draft) {
+      const dp = {};
+      draft.split('&').forEach(part => {
+        const eq = part.indexOf('=');
+        if (eq > -1) dp[part.slice(0, eq)] = part.slice(eq + 1);
+      });
+      const dq = parseInt(dp.q, 10);
+      if (!isNaN(dq) && dq < TOTAL) {
+        const nAns = dp.a ? dp.a.split(',').length : 0;
+        const startedStr = localStorage.getItem(DRAFT_KEY + '-started');
+        const d = startedStr ? new Date(startedStr) : null;
+        const dateStr = d ? d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+        const timeStr = d ? d.toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' }) : '';
+        draftHtml = `<a href="#${draft}" class="history-entry" onclick="closeHistory()">
+          <div class="he-date">${dateStr}${timeStr ? ' · ' + timeStr : ''}</div>
+          <div class="he-score ongoing">↩ In progress · Q${dq + 1}/${TOTAL} · ${nAns} answered</div>
+        </a>`;
+      }
+    }
+
+    if (!hist.length && !draftHtml) {
       list.innerHTML = '<p class="history-empty">No sessions yet.<br>Complete a quiz to see your history here.</p>';
       return;
     }
-    list.innerHTML = hist.map(entry => {
+
+    list.innerHTML = draftHtml + hist.map(entry => {
       const d = new Date(entry.date);
       const dateStr = d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
       const timeStr = d.toLocaleTimeString('en-CA', { hour: '2-digit', minute: '2-digit' });
