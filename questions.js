@@ -1583,5 +1583,1100 @@ const QUESTIONS = [
     a: ["British Columbia", "Prairie Provinces", "Ontario", "Manitoba"],
     correct: 1,
     chapter: "Regions of Canada"
+  },
+
+  // ===== Additional questions from the full 500-question video transcript =====
+  // Rights & Responsibilities
+  {
+    q: "The phrase 'Whereas Canada is founded upon principles that recognize the supremacy of God and the rule of law' underlines the importance of:",
+    a: ["Religious tradition only", "The dignity and worth of the human person only", "Both religious/moral values and the dignity and worth of the human person", "None of these"],
+    correct: 2,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "What status does the Canadian Constitution give to multiculturalism?",
+    a: ["It shouldn't exist", "It is prohibited to celebrate it", "It should be celebrated", "It should be ignored"],
+    correct: 2,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "What does the Constitution of Canada say about the rights of Aboriginal peoples?",
+    a: ["They cannot be overruled by the Charter", "They are subordinate to it", "They are not mentioned at all", "They do not have equal status"],
+    correct: 0,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Where do the rights and responsibilities of Canadian citizens come from?",
+    a: ["The future", "Our history", "Recent wars and political dominance", "Each government decides its own"],
+    correct: 1,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Which of these religions has greater rights in Canada?",
+    a: ["Islam", "Christianity", "Judaism", "They are all equal"],
+    correct: 3,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "In Canadian courts, any statement made against women on the basis of cultural traditions will be:",
+    a: ["Applauded", "Applied", "Disregarded", "Agreed to"],
+    correct: 2,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Helping in the community and volunteering helps to:",
+    a: ["Get everybody involved", "Make friends and contacts", "Develop a working and social environment", "All of the above"],
+    correct: 3,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Teenagers who cannot yet join the Canadian Army can become a:",
+    a: ["Cadet", "Police officer", "Nurse", "Driver"],
+    correct: 0,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Name two fundamental freedoms protected by the Canadian Charter of Rights and Freedoms:",
+    a: ["Freedom of conscience and religion, and freedom of association", "Equality rights and caring for Canada's heritage", "Basic freedoms and obeying laws", "Aboriginal peoples' rights and volunteering"],
+    correct: 0,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Name three additional rights protected by the Canadian Charter of Rights and Freedoms:",
+    a: ["Freedom of speech, right to own land, and right to a fair trial", "Mobility rights, multiculturalism, and Aboriginal peoples' rights", "Right to ski anywhere, moving rights, and right to public assembly", "Right to vote, right to speak publicly, and security rights"],
+    correct: 1,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "Name two key documents that contain our rights and freedoms:",
+    a: ["The Canadian Constitution and English common law", "The Civil Code of France and the Canadian Constitution", "The Canadian Charter of Rights and Freedoms and Magna Carta", "Laws passed by Parliament and English common law"],
+    correct: 2,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "What are some examples of taking responsibility for yourself and your family?",
+    a: ["Buying a house and a TV", "Getting a job, taking care of one's family, and working hard in keeping with one's abilities", "Doing laundry and keeping the house clean", "Studying hard to earn money for a vacation"],
+    correct: 1,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "What law allows a new immigrant woman to take a job at par with a man?",
+    a: ["Equality of women and men", "Equality of all races", "Equal pay for equal work", "Equal rights"],
+    correct: 0,
+    chapter: "Rights & Responsibilities"
+  },
+  {
+    q: "In Canada, are you allowed to question the police about their service or conduct?",
+    a: ["No, it is not open to discussion", "Yes, but only their service", "Yes, but only their conduct", "Yes, if you feel the need to"],
+    correct: 3,
+    chapter: "Rights & Responsibilities"
+  },
+
+  // Who We Are
+  {
+    q: "Canada is regarded around the world as:",
+    a: ["Dependent", "Strong and free", "Aggressive", "Captive"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "The Canadian system of government is based on:",
+    a: ["Population rule", "Constitutional monarchy", "Benign dictatorship", "Republican democracy"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Who said that immigrant groups 'should retain their individuality and each make its contribution to the national character'?",
+    a: ["John Buchan (Lord Tweedsmuir)", "St. Patrick", "King George III", "None of these"],
+    correct: 0,
+    chapter: "Who We Are"
+  },
+  {
+    q: "According to John Buchan, from where should we learn while cherishing our own special loyalties and traditions?",
+    a: ["From our own traditions", "From the traditions of others", "Only from our parents", "None of the above"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Who are the descendants of the French colonists who began settling in the Maritime provinces in 1604?",
+    a: ["The British", "The Acadians", "The Germans", "The Vikings"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Today, Acadian culture is a lively part of:",
+    a: ["English-speaking Canada", "French-speaking Canada", "German-speaking Canada", "Inuktitut-speaking Canada"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Anglophones are people who speak which language as their first language?",
+    a: ["French", "English", "Métis", "Inuktitut"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "In becoming a Canadian citizen, newcomers are expected to embrace:",
+    a: ["Canadian law", "International law", "The law of their native land", "No law"],
+    correct: 0,
+    chapter: "Who We Are"
+  },
+  {
+    q: "According to Canadian law, marriage between gay or lesbian partners is:",
+    a: ["Not allowed", "Allowed", "Allowed in some conditions", "None of the above"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "What rights do gay and lesbian Canadians have compared to heterosexual Canadians?",
+    a: ["Not equal rights", "Equal rights", "Equal rights under some circumstances", "None of the above"],
+    correct: 1,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Who are the Québécois?",
+    a: ["European settlers in the 1600s", "Descendants of the Anglophones", "Descendants of the Acadians only", "The people of Quebec, the vast majority French-speaking"],
+    correct: 3,
+    chapter: "Who We Are"
+  },
+
+  // Canada's History
+  {
+    q: "Which nomadic people moved from place to place following the bison (buffalo) herds?",
+    a: ["Inuit", "Cree", "French", "Sioux"],
+    correct: 3,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who was the first to draw a map of Canada's east coast?",
+    a: ["King Francis I of France", "John Cabot", "Count Frontenac", "Sir Guy Carleton"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Where are the remains of the Viking settlement that colonized Newfoundland located?",
+    a: ["L'Anse aux Meadows", "Plains of Abraham", "Winnipeg", "None of these"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In 1608, Champlain built a fortress at what is now which city?",
+    a: ["Vancouver", "Whitehorse", "Quebec City", "Montreal"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In which year did the French and the Iroquois make peace?",
+    a: ["1700", "1701", "1600", "1601"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "The French-speaking Catholic people who strove to preserve their way of life in the British Empire were known as:",
+    a: ["Canadiens", "Habitants", "Both Canadiens and Habitants", "None of the above"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In 1670, for the next 100 years after gaining trading rights, the Hudson's Bay Company competed with which traders?",
+    a: ["Montreal-based traders", "Vancouver-based traders", "New Brunswick-based traders", "Quebec-based traders"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "For which purpose did the British Parliament pass the Quebec Act of 1774?",
+    a: ["To better govern the English Catholic majority", "To better govern the French Roman Catholic majority", "To better govern the immigrants and armed forces", "To better govern non-official language speakers"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In 1792, some Black Nova Scotians who were given poor land moved on to establish which free town in West Africa?",
+    a: ["Freetown, Sierra Leone", "Montreal", "Vancouver", "Boston"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Joseph Brant led thousands of loyalist Mohawks of which background into Canada?",
+    a: ["German", "Indian (First Nations)", "Korean", "Australian"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "The Atlantic colonies together with Upper and Lower Canada were collectively known as:",
+    a: ["British Canada", "British North America", "Greater Canada", "Northern States"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "When did the first financial institutions open in Canada?",
+    a: ["Late 17th and early 18th centuries", "Late 16th and early 17th centuries", "Late 18th and early 19th centuries", "Late 19th and early 20th centuries"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "For centuries, Canada's economy was based mainly on farming and on exporting which natural resources?",
+    a: ["Oil", "Weapons", "Natural resources such as fur, timber, and fish", "Slaves"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Cities of the Northwest such as Edmonton, Langley, and Victoria all started as:",
+    a: ["Landing stages", "Army bases", "Trading posts", "Religious settlements"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "How many American invaders did Lieutenant-Colonel Charles de Salaberry and 460 soldiers (mostly French Canadians) turn back at Châteauguay south of Montreal in 1813?",
+    a: ["4,000", "5,000", "6,000", "7,000"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In which year did the United States launch an invasion in revenge for British interference with their shipping?",
+    a: ["1832", "1812", "1870", "1807"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "According to Lord Durham, into which culture did Canadians have to assimilate to achieve the quickest progress?",
+    a: ["English-speaking", "French-speaking", "German-speaking", "Irish"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In 1840, Upper and Lower Canada were united as the:",
+    a: ["Province of Canada", "Province of Germany", "Province of United States", "Province of Korea"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who was the first member of the Canadian Corps not born in the British Empire to be awarded the Victoria Cross?",
+    a: ["Able Seaman William Hall", "Corporal Filip Konowal", "Lieutenant Alexander Roberts Dunn", "Captain Paul Triquet"],
+    correct: 1,
+    chapter: "Victoria Cross & Honours"
+  },
+  {
+    q: "Victoria Day is celebrated on the:",
+    a: ["Wednesday preceding June 25th", "Tuesday preceding May 25th", "Monday preceding May 25th", "Thursday preceding July 25th"],
+    correct: 2,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "When were the first companies in Canada formed?",
+    a: ["During French and German regimes", "During French and British regimes", "During German and British regimes", "None of these"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+
+  // Confederation
+  {
+    q: "Who suggested the term 'Dominion of Canada' in 1864?",
+    a: ["Sir Leonard Tilley", "Sir John A. Macdonald", "Sir George-Étienne Cartier", "Sir Sam Steele"],
+    correct: 0,
+    chapter: "Confederation"
+  },
+  {
+    q: "Sir Leonard Tilley was inspired by which Psalm in the Bible, which refers to 'dominion from sea to sea'?",
+    a: ["Psalm 84", "Psalm 96", "Psalm 72", "Psalm 60"],
+    correct: 2,
+    chapter: "Confederation"
+  },
+  {
+    q: "In which year was Sir John A. Macdonald born in Scotland?",
+    a: ["February 11th, 1850", "January 21st, 1815", "January 11th, 1815", "December 21st, 1850"],
+    correct: 2,
+    chapter: "Confederation"
+  },
+  {
+    q: "Who led Quebec into Confederation and helped negotiate the entry of the Northwest Territories, Manitoba, and British Columbia into Canada?",
+    a: ["Sir George-Étienne Cartier", "Sir John A. Macdonald", "Sir Sam Steele", "Sir Wilfrid Laurier"],
+    correct: 0,
+    chapter: "Confederation"
+  },
+  {
+    q: "What did the Fathers of Confederation do?",
+    a: ["Worked together to establish a new country, the Dominion of Canada", "Were explorers who surveyed northern Canada", "Formed a republic in Canada", "Tried to unite Canada with the United States"],
+    correct: 0,
+    chapter: "Confederation"
+  },
+
+  // Challenging the West
+  {
+    q: "When Canada took over the Northwest from the Hudson's Bay Company in 1869, which people of the Red River were not consulted?",
+    a: ["Sioux", "Iroquois", "Métis", "Indians"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who financed the railway to the West Coast, built by European and Chinese labourers?",
+    a: ["British investors", "German investors", "American investors", "Both British and American investors"],
+    correct: 3,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who led an armed uprising and seized Fort Garry, the territorial capital?",
+    a: ["John A. Macdonald", "Louis Riel", "Sam Steele", "George-Étienne Cartier"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who was Sir Sam Steele?",
+    a: ["A great frontier hero, mounted policeman, and soldier of the Queen", "A military leader of the Métis", "The first Prime Minister of Canada", "The father of Manitoba"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who played a major part in building the Canadian Pacific Railway?",
+    a: ["American railroad engineers", "Acadian railroad workers", "Chinese railroad workers", "African-American slaves"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "What was the head tax?",
+    a: ["A race-based entry fee charged to Chinese entering Canada", "A fee charged to anyone entering Canada after 1900", "A tax imposed on beer beginning in 1867", "A fee charged for moving westward in the early 1900s"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "What did the Canadian Pacific Railway's 'last spike' on November 7, 1885 symbolize?",
+    a: ["Easy access to the West Coast", "Unity", "Ribbons of steel", "Wealth"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Where did most immigrants come from before the First World War, including 170,000 of this group?",
+    a: ["Ukraine", "India", "Antarctica", "France"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+
+  // World Wars
+  {
+    q: "From 1914 to 1920, Ottawa interned over 8,000 former Austro-Hungarian subjects as enemy aliens, mainly which men?",
+    a: ["Ukrainian men", "German men", "American men", "French men"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "The group of more than 3,000 nurses who served in the Royal Canadian Army Medical Corps were nicknamed:",
+    a: ["Red Birds", "Bluebirds", "Purple Birds", "Songbirds"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Which farmers were hit hardest during the Great Depression of the 'Dirty Thirties'?",
+    a: ["Farmers in Eastern Canada", "Farmers in Western Canada", "Farmers in Central Canada", "Farmers in the Maritimes"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Unemployment reached what percentage in 1933 during the Great Depression?",
+    a: ["17%", "27%", "37%", "47%"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In 1943–44, Canadians took part in the liberation of which nation?",
+    a: ["Germany", "India", "Italy", "South Korea"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "How many Canadians and Newfoundlanders served in the Second World War?",
+    a: ["More than 1 million", "2 million", "3 million", "4 million"],
+    correct: 0,
+    chapter: "Canada's History"
+  },
+  {
+    q: "In 1941, Canada suffered losses in the unsuccessful defence of which territory from Imperial Japan?",
+    a: ["Moscow", "Boston", "Hong Kong", "Vancouver"],
+    correct: 2,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Who was Canada's greatest soldier in the First World War, who commanded the Canadian Corps in the last 100 days of 1918?",
+    a: ["A military leader of the Métis", "A great frontier hero", "An explorer of Western Canada", "General Sir Arthur Currie"],
+    correct: 3,
+    chapter: "Canada's History"
+  },
+
+  // Modern Canada
+  {
+    q: "In which year did a majority of Canadians first afford adequate food, shelter, and clothing?",
+    a: ["1931", "1941", "1951", "1961"],
+    correct: 2,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Which act ensures common elements and a basic standard of health care in Canada?",
+    a: ["The Canada Health Act", "Constitutional Act 1970", "The Canada Medicine Act", "The Canada Pension Act"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Which level of government provides publicly funded education in Canada?",
+    a: ["The provinces and territories", "The federal government", "The municipalities", "The Senate"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "In which UN role did Canada take part after the Second World War?",
+    a: ["Peacekeeping missions", "Violence missions", "Trading and growth missions", "Invasion plans"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "In 1970, Canada helped found which international association of French-speaking countries?",
+    a: ["La Francophonie", "The Commonwealth", "NATO", "NAFTA"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "By the 1960s, what fraction of Canadians had origins that were neither British nor French?",
+    a: ["One-quarter", "One-third", "One-half", "Two-thirds"],
+    correct: 1,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "What was one outcome of better educational opportunities for women?",
+    a: ["Women entered the professional workforce", "Women gained the right to vote", "Women received proper education", "Women could join the armed forces"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Which of the following were renowned Canadian musicians?",
+    a: ["Sir Ernest MacMillan and Healey Willan", "Terry Fox and Wayne Gretzky", "Pauline Johnson and Emily Stowe", "Donovan Bailey and Mark Tewksbury"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Which of the following is a famous Canadian writer?",
+    a: ["Pauline Johnson", "Terry Fox", "Wayne Gretzky", "Donovan Bailey"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Professional teams in the Canadian Football League (CFL) compete for which championship cup?",
+    a: ["The Grey Cup", "The White Cup", "The Black Cup", "The Red Cup"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Who were the pioneers of modern abstract art in Quebec in the 1950s?",
+    a: ["Les Automatistes", "The realists", "The constructionists", "The cubists"],
+    correct: 0,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "At the 1996 Olympic Summer Games, who became a world record sprinter and double Olympic gold medalist?",
+    a: ["Chantal Petitclerc", "Donovan Bailey", "Mark Tewksbury", "Paul Henderson"],
+    correct: 1,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Who became a world champion wheelchair racer and Paralympic gold medalist?",
+    a: ["Donovan Bailey", "Terry Fox", "Wayne Gretzky", "Chantal Petitclerc"],
+    correct: 3,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Herzberg, Polanyi, Altman, Taylor, Smith, and Brockhouse were Canadian:",
+    a: ["Musicians", "Writers", "Nobel Prize-winning scientists", "Politicians"],
+    correct: 2,
+    chapter: "Modern Canada"
+  },
+  {
+    q: "Which famous invention came from Research In Motion (RIM), a Canadian wireless communications company?",
+    a: ["The smartphone generally", "Huawei phones", "The iPhone", "The BlackBerry"],
+    correct: 3,
+    chapter: "Modern Canada"
+  },
+
+  // How Canada is Governed
+  {
+    q: "Cabinet ministers must resign if they are:",
+    a: ["Defeated in a non-confidence vote", "Successful in a non-confidence vote", "Defeated in a confidence vote", "Successful in a confidence vote"],
+    correct: 0,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "How often do elections for members of the House of Commons traditionally take place?",
+    a: ["Every 5 years", "Every 3 years", "Every 4 years", "Every 6 years"],
+    correct: 2,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "In Canada's parliamentary democracy, elected representatives are responsible for:",
+    a: ["Passing laws only", "Approving and monitoring expenditures only", "Keeping the government accountable only", "Passing laws, approving and monitoring expenditures, and keeping the government accountable"],
+    correct: 3,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "Who has no political role in Canadian democracy?",
+    a: ["The Sovereign", "The Prime Minister", "The Governor General", "Senate members"],
+    correct: 0,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "Who is the leader of the legislature in each province?",
+    a: ["The Governor General", "The Premier", "The Lieutenant Governor", "The Queen"],
+    correct: 1,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "What is the role of the opposition parties?",
+    a: ["To assist the Prime Minister", "To sign bills", "To peacefully oppose or try to improve government proposals", "To put forward bills to be passed"],
+    correct: 2,
+    chapter: "How Canada is Governed"
+  },
+
+  // Federal Elections
+  {
+    q: "Canada is divided into how many electoral districts, also known as ridings or constituencies?",
+    a: ["300", "305", "350", "308"],
+    correct: 3,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "How many people can run for office from a single electoral district?",
+    a: ["24", "12", "6", "As many as wish to run"],
+    correct: 3,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "How are voting details (when and where to vote) passed to Canadian citizens?",
+    a: ["Social media", "Mail", "Phone calls", "The citizen must find out on their own"],
+    correct: 1,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "How can a person vote on a day that is not election day?",
+    a: ["Online", "Through advance polls or special ballots", "They cannot", "They decide on their own"],
+    correct: 1,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "Can a Canadian citizen be added to the voters' list on election day?",
+    a: ["Yes", "No", "It depends", "Only with a court order"],
+    correct: 0,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "Which neutral agency of Parliament produces the voters' lists from the National Register of Electors?",
+    a: ["Elections Canada", "The Legislative Assembly", "The federal government", "The Sovereign"],
+    correct: 0,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "The piece of paper you vote on is known as a:",
+    a: ["Voters' list", "Voter information card", "Riding", "Ballot"],
+    correct: 3,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "What does a 'secret ballot' mean?",
+    a: ["A type of game played in Canada", "No one watches you vote or how you vote", "Confidential government information", "None of these"],
+    correct: 1,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "If a majority of the House of Commons votes against a major government decision, the party in power is:",
+    a: ["Successful", "Defeated", "Promoted", "Unaffected"],
+    correct: 1,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "Who is responsible for running the federal government departments?",
+    a: ["The Prime Minister", "Cabinet ministers", "The Governor General", "Senators"],
+    correct: 1,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "Which of the following is a responsibility of the municipal government?",
+    a: ["Foreign policy", "Agriculture", "Health care", "Social and community services"],
+    correct: 3,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "After a federal election, which party forms the new government?",
+    a: ["The party with the most elected representatives, invited by the Governor General to be the party in power", "The party the Queen personally picks", "The party the Governor General proposes a law for", "The party the provincial premiers choose"],
+    correct: 0,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "Ordinarily, how is the government formed after a federal election?",
+    a: ["The party with the most representatives forms the party in power and the Queen chooses the PM", "The party with the most representatives forms the party in power and its leader becomes Prime Minister", "The Governor General picks a party and a Prime Minister", "Each province elects one representative and the Queen chooses the PM"],
+    correct: 1,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "What should you do if you do not receive a voter information card telling you when and where to vote?",
+    a: ["Go to the police station", "Call your Member of Parliament", "Assume you cannot vote", "Call Elections Canada or visit their website"],
+    correct: 3,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "When you vote on election day, what is the correct procedure?",
+    a: ["Tell them who you are, mark your X, and give the ballot back to the attendant", "Remove one ballot and, after marking your X, deposit it in the ballot box", "Highlight your choice on the ballot and deposit it in the box", "Bring your voter card and ID, mark an X next to your candidate, fold the ballot, and present it to poll officials who tear off the number before you deposit it"],
+    correct: 3,
+    chapter: "Federal Elections"
+  },
+  {
+    q: "What does an electoral district being represented mean for a Montreal MP who spends the weekend 'in her electoral district'?",
+    a: ["She is in her office on Parliament Hill", "She is visiting the whole province of Quebec", "She is in the part of Montreal where she was elected", "She is going on vacation"],
+    correct: 2,
+    chapter: "Federal Elections"
+  },
+
+  // Canadian Symbols
+  {
+    q: "Queen Elizabeth II marked her golden jubilee in 2002 and celebrated her diamond jubilee in which year?",
+    a: ["2010", "2012", "2014", "2016"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "Which flag is Canada's official Royal Flag?",
+    a: ["The Union Jack", "The Union Queen", "The Union King", "The Union Law"],
+    correct: 0,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "In which year was the Royal Military College in Kingston (source of the flag's red-white-red pattern) founded?",
+    a: ["1865", "1876", "1885", "1897"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "The Canadian Red Ensign served as the Canadian flag for about how many years?",
+    a: ["200 years", "100 years", "50 years", "10 years"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "What is Canada's best known symbol?",
+    a: ["The pawpaw leaf", "The kale leaf", "The maple leaf", "The guava leaf"],
+    correct: 2,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "In which year is the fleur-de-lys said to have been adopted by the French king?",
+    a: ["Year 500", "Year 495", "Year 496", "Year 596"],
+    correct: 2,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "For how many years was the fleur-de-lys (lily flower) a symbol of French royalty?",
+    a: ["500 years", "More than 1,000 years", "1,500 years", "2,000 years"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "The Canadian coat of arms contains symbols of England, France, Scotland, and:",
+    a: ["Germany", "Korea", "Ireland", "Australia"],
+    correct: 2,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "In which decade were the Parliament buildings completed?",
+    a: ["1850s", "1860s", "1870s", "1880s"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "The Memorial Chamber within the Peace Tower contains the Books of Remembrance, which list the names of:",
+    a: ["Soldiers who died in war", "Soldiers who served in war", "Commanders who led troops in war", "Prime ministers"],
+    correct: 0,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "In which architectural style is the Quebec National Assembly built?",
+    a: ["French First Empire", "French Second Empire", "French Third Empire", "Gothic Revival"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "The Clarkson Cup, established in 2005 by Adrienne Clarkson, is awarded for:",
+    a: ["Men's hockey", "Women's hockey", "Both men's and women's hockey", "Curling"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "What was adopted centuries ago as a symbol of the Hudson's Bay Company?",
+    a: ["The lion", "The eagle", "The bison", "The beaver"],
+    correct: 3,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "The beaver became an emblem of the Saint-Jean-Baptiste Society, a French Canadian patriotic association, in which year?",
+    a: ["1834", "1824", "1814", "1804"],
+    correct: 0,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "In Canada, where do English and French have equal status?",
+    a: ["Everywhere", "Only in the Parliament buildings", "Only in specific regions", "Only in Ontario"],
+    correct: 0,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "How do French and English Canadians sing the national anthem 'O Canada'?",
+    a: ["They sing the same words", "They sing the words of their own language", "They do not sing it", "None of these"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "Anglophones and francophones have lived together in partnership and creative tension for more than:",
+    a: ["200 years", "300 years", "400 years", "500 years"],
+    correct: 1,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "Give an example of where English and French have equal status in Canada:",
+    a: ["In schools", "In the workplace", "In the Parliament of Canada", "At city hall"],
+    correct: 2,
+    chapter: "Canadian Symbols"
+  },
+  {
+    q: "What is the first line of Canada's national anthem?",
+    a: ["O Canada, our home and native land", "O Canada, our province and native land", "O Canada, from far and wide", "O Canada, we stand on guard for thee"],
+    correct: 0,
+    chapter: "Canadian Symbols"
+  },
+
+  // Victoria Cross & Honours
+  {
+    q: "Who can nominate a fellow Canadian for a Canadian honour?",
+    a: ["Any Canadian", "Only Parliament", "Only the Prime Minister", "Only the Queen"],
+    correct: 0,
+    chapter: "Victoria Cross & Honours"
+  },
+  {
+    q: "Before starting its own honour system in 1967, which honour system did Canada use?",
+    a: ["The German honour system", "The Indian honour system", "The British honour system", "The Australian honour system"],
+    correct: 2,
+    chapter: "Victoria Cross & Honours"
+  },
+  {
+    q: "Who was the first Canadian to be awarded the Victoria Cross, for his actions in the Crimean War?",
+    a: ["Able Seaman William Hall", "Corporal Filip Konowal", "Lieutenant Alexander Roberts Dunn", "Captain Paul Triquet"],
+    correct: 2,
+    chapter: "Victoria Cross & Honours"
+  },
+  {
+    q: "Who was the last Canadian to be awarded the Victoria Cross (in 1945)?",
+    a: ["Able Seaman William Hall", "Corporal Filip Konowal", "Captain Paul Triquet", "Lieutenant Robert Hampton Gray"],
+    correct: 3,
+    chapter: "Victoria Cross & Honours"
+  },
+  {
+    q: "Since 1854, how many Canadians have been awarded the Victoria Cross?",
+    a: ["67", "85", "71", "96"],
+    correct: 3,
+    chapter: "Victoria Cross & Honours"
+  },
+  {
+    q: "Who was the first Black man to be awarded the Victoria Cross?",
+    a: ["Able Seaman William Hall", "Corporal Filip Konowal", "Lieutenant Alexander Roberts Dunn", "Captain Paul Triquet"],
+    correct: 0,
+    chapter: "Victoria Cross & Honours"
+  },
+
+  // Holidays & Economy
+  {
+    q: "Good Friday falls on the Friday immediately preceding:",
+    a: ["Easter Sunday", "Easter Monday", "Easter Tuesday", "Easter Wednesday"],
+    correct: 0,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "Christmas Day is celebrated on:",
+    a: ["November 11th", "November 20th", "December 25th", "December 26th"],
+    correct: 2,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "The Feast of Saint-Jean-Baptiste (Fête nationale in Quebec) is celebrated on:",
+    a: ["August 24th", "June 24th", "July 24th", "September 24th"],
+    correct: 1,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "Sir Wilfrid Laurier Day is celebrated on:",
+    a: ["November 11th", "November 20th", "December 25th", "December 26th"],
+    correct: 1,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "Canada's economy mostly depends upon:",
+    a: ["Tourism", "Finance", "Service", "Trade"],
+    correct: 3,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "Canada and the United States are each the other's:",
+    a: ["Smallest trading partner", "Only trading partner", "Largest trading partner", "Military rival"],
+    correct: 2,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "What is the border between Canada and the United States traditionally known as?",
+    a: ["The world's longest undefended border", "The Inter-Canada and America border", "The intercity defence border", "The Canadian highway"],
+    correct: 0,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "Even today, the major exports of Canada are mainly:",
+    a: ["Natural resources", "Manufactured industrial products", "Automobiles", "Tourism services"],
+    correct: 0,
+    chapter: "Holidays & Economy"
+  },
+  {
+    q: "In what industry do most Canadians work?",
+    a: ["Natural resources", "Tourism", "Service", "Manufacturing"],
+    correct: 2,
+    chapter: "Holidays & Economy"
+  },
+
+  // Regions of Canada
+  {
+    q: "Along the southern edge of Canada lies the:",
+    a: ["Arctic Ocean", "Atlantic Ocean", "Canada–United States boundary", "Greenland border"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which Canadian provinces lie in the eastern (Atlantic) region?",
+    a: ["The Prairie provinces", "The Atlantic provinces", "Central Canada", "Yukon"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "The area surrounding Ottawa is known as the:",
+    a: ["National Capital Region", "National Canadian Region", "National Territorial Region", "National Queen's Region"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Today, Ottawa is Canada's which largest metropolitan area?",
+    a: ["Second largest", "Third largest", "Fourth largest", "Fifth largest"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which novel set in Prince Edward Island by Lucy Maud Montgomery tells of a red-headed orphan girl?",
+    a: ["Anne of Green Gables", "Lucy of Green Gables", "Matilda of Green Gables", "Lyanna of Green Gables"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "On which mountain range is New Brunswick situated?",
+    a: ["Appalachian", "K2", "Yukon", "Rocky"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which Atlantic province is considered the 'gateway to Canada'?",
+    a: ["Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "What is the largest city in New Brunswick?",
+    a: ["Saint John", "Victoria", "Halifax", "Iqaluit"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "New Brunswick contains which river system, the second largest on North America's Atlantic coastline?",
+    a: ["The Saint John River system", "The Mackenzie River system", "The Mississippi River system", "The St. Lawrence River system"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which province is home to Canada's largest naval base?",
+    a: ["Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which province hosts over 700 annual festivals, including the Military Tattoo in Halifax?",
+    a: ["Nova Scotia", "New Brunswick", "Newfoundland and Labrador", "Prince Edward Island"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Newfoundland and Labrador is the oldest colony of which empire?",
+    a: ["German Empire", "British Empire", "French Empire", "Spanish Empire"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "How many provinces are in the Central Canada region?",
+    a: ["Two (Ontario and Quebec)", "Three", "Four", "Five"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "How many Great Lakes lie between Ontario and the United States?",
+    a: ["Four", "Five", "Six", "Seven"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Ontario contains approximately what proportion of Canada's population?",
+    a: ["One-quarter", "One-third", "One-half", "Three-quarters"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Approximately how many people live in Quebec, mostly along or near the St. Lawrence River?",
+    a: ["7 million", "8 million", "9 million", "10 million"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Banff National Park, in Alberta, was established in which year?",
+    a: ["1885", "1890", "1895", "1900"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which province has the largest Aboriginal population proportion (over 15%)?",
+    a: ["New Brunswick", "Quebec", "Manitoba", "Ontario"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "The Prairie provinces contain the most:",
+    a: ["Fertile farmland in the world", "Oil reserves in the world", "Coal reserves in the world", "Freshwater lakes in the world"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which city is the headquarters of the mining industry and an important educational, research, and technology centre in Saskatchewan?",
+    a: ["Regina", "Saskatoon", "Toronto", "Montreal"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which city is a tourist centre and headquarters of the Navy's Pacific Fleet?",
+    a: ["Montreal", "Victoria", "Vancouver", "Winnipeg"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "About half of all goods produced in British Columbia are:",
+    a: ["Natural resources generally", "Automobile products", "Forestry products", "Oil products"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Approximately how many provincial parks does British Columbia have?",
+    a: ["900", "800", "600", "700"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which is the second longest river system in North America (after the Mississippi)?",
+    a: ["The Mackenzie River system", "The Saint John River system", "The St. Lawrence River system", "The Fraser River system"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "The Northwest Territories, Nunavut, and Yukon together have a population of only about:",
+    a: ["100,000", "200,000", "300,000", "400,000"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Thousands of miners came to the Yukon during the gold rush of the:",
+    a: ["1860s", "1890s", "1990s", "1910s"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "In which territory is Inuktitut an official language and the first language in schools, with a population about 85% Inuit?",
+    a: ["Yukon", "Northwest Territories", "Alberta", "Nunavut"],
+    correct: 3,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "How do the Canadian Rangers travel in winter from Resolute to the Magnetic North Pole?",
+    a: ["By motorbike", "By heated cars", "By snowmobile", "On foot"],
+    correct: 2,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "The Canadian Rangers are part of which body?",
+    a: ["The Canadian police", "The Canadian Forces Reserves (militia)", "The Canadian Coast Guard", "The Canadian Army regulars"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "From where does the name 'Canada' come?",
+    a: ["The Inuit word for 'country'", "The French word for 'joining'", "The Métis word for 'rivers'", "Kanata, the Iroquoian (Huron) word for 'village'"],
+    correct: 3,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "What are the territories of Northern Canada and their capital cities?",
+    a: ["Alaska–Juneau and Yukon–Whitehorse", "Northwest Territories–Yellowknife and Alaska–Juneau", "Only Northwest Territories–Yellowknife", "Yukon–Whitehorse, Northwest Territories–Yellowknife, and Nunavut–Iqaluit"],
+    correct: 3,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "What are the Prairie provinces and their capital cities?",
+    a: ["Alberta–Edmonton and Saskatchewan–Regina", "Alberta–Edmonton, Saskatchewan–Regina, and Manitoba–Winnipeg", "Saskatchewan–Regina and Manitoba–Winnipeg", "Saskatchewan–Regina, Manitoba–Winnipeg, and Ontario–Toronto"],
+    correct: 1,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Name two responsibilities of the federal government:",
+    a: ["National defence and firefighting", "National defence and foreign policy", "Citizenship and highways", "Recycling and education"],
+    correct: 1,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "Name two responsibilities of the provincial and territorial governments:",
+    a: ["Citizenship and foreign policy", "Health and education", "Defence and currency", "Criminal law and interprovincial trade"],
+    correct: 1,
+    chapter: "How Canada is Governed"
+  },
+  {
+    q: "Which act first granted, in Canada, legislative assemblies elected by the people?",
+    a: ["The Constitutional Act of 1867", "The Constitutional Act of 1791", "The Constitution Act of 1982", "The Constitution Act of 2010"],
+    correct: 1,
+    chapter: "Canada's History"
+  },
+  {
+    q: "Which country borders Canada to the south?",
+    a: ["The United States of America", "Central America", "Mexico", "Washington"],
+    correct: 0,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "Which of the following statements about residential schools is NOT true?",
+    a: ["The federal government placed many Aboriginal children there to assimilate them", "The schools were poorly funded and inflicted hardship on students", "The schools were welcomed by the Aboriginal people", "Aboriginal languages and cultural practices were mostly prohibited"],
+    correct: 2,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Which region covers more than one-third of Canada?",
+    a: ["Central Canada", "The Prairies", "Atlantic Canada", "The Northern Territories"],
+    correct: 3,
+    chapter: "Regions of Canada"
+  },
+  {
+    q: "What is the largest religious affiliation in Canada?",
+    a: ["Catholic", "Muslim", "Jewish", "Hindu"],
+    correct: 0,
+    chapter: "Who We Are"
+  },
+  {
+    q: "Who have major responsibilities on First Nations reserves?",
+    a: ["Band chiefs and councillors", "Municipal governments", "Provincial and territorial governments", "The federal government"],
+    correct: 0,
+    chapter: "Who We Are"
   }
 ];
