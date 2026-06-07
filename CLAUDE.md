@@ -9,7 +9,7 @@ A GitHub Pages app for practising the Canadian citizenship test. Source lives in
 ## Branches
 
 - **`main`** — source branch; all development happens here. GitHub Actions builds and auto-deploys to the Pages branch on every push to `main`.
-- **`claude/canada-citizenship-quiz-app-TSMgj`** — GitHub Pages branch; contains only the built output from `dist/`. Never push to this branch manually.
+- **`gh-pages`** — GitHub Pages branch; contains only the built output from `dist/`. Never push to this branch manually.
 
 **Never push hand-edited files to the Pages branch.** Push to `main` and let CI deploy.
 
