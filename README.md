@@ -31,11 +31,26 @@ All questions are based on facts stated in the official *Discover Canada: The Ri
 
 ## Running locally
 
-No build step required. Open `index.html` directly, or:
+Requires [Node.js](https://nodejs.org/) 18+ and [Yarn](https://classic.yarnpkg.com/).
 
 ```bash
-python3 -m http.server 8080
+# 1. Install dependencies (first time only)
+yarn install
+
+# 2. Start the dev server with hot reload
+yarn dev
+# → http://localhost:5173/Citizenship-2026/
+
+# 3. Build a production bundle
+yarn build
+# → output goes to dist/
+
+# 4. Preview the production build locally
+yarn preview
+# → http://localhost:4173/Citizenship-2026/
 ```
+
+The dev server (`yarn dev`) reflects code changes instantly without a page reload. Use `yarn preview` to test the minified production build before pushing.
 
 ## Accuracy policy
 
