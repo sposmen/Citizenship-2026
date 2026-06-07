@@ -1,4 +1,4 @@
-const QUESTIONS = [
+export const QUESTIONS = [
   // Rights & Responsibilities
   {
     q: "Who are regulated by laws in Canada?",

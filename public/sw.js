@@ -1,8 +1,17 @@
-const CACHE = 'citizenship-v2';
-const SHELL = ['./index.html', './questions.js', './manifest.json', './icon.svg'];
+const CACHE = 'citizenship-v3';
+const SHELL = [
+  './index.html',
+  './assets/',
+  './manifest.json',
+  './icon.svg',
+];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => c.addAll(['./index.html', './manifest.json', './icon.svg']))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', e => {
